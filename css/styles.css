@@ -578,7 +578,7 @@ footer {
 
 /* Donaciones con un toque especial */
 .social-link.donate {
-    background: linear-gradient(135deg, #ff6b6b, #f06595);
+    background: linear-gradient(135deg, #c511f1, rgb(160, 22, 252));
 }
 
 .social-link.donate:hover {
