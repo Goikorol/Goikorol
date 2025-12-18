@@ -133,3 +133,61 @@ footer {
         margin-bottom: 40px;
     }
 }
+/* Logo en el header */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Espacio entre logo y texto */
+}
+
+.header-logo {
+    height: 50px; /* Ajusta según el tamaño que quieras en desktop */
+    width: auto;
+    border-radius: 8px; /* Opcional: redondear un poco */
+}
+
+.logo-text {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+/* Hero Banner */
+#hero {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.hero-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Mantiene proporciones y cubre el área */
+}
+
+/* Responsivo para móvil */
+@media (max-width: 767px) {
+    .header-logo {
+        height: 40px; /* Un poco más pequeño en móviles */
+    }
+
+    .logo-text {
+        font-size: 1.5em;
+    }
+
+    /* Opcional: si el banner es muy alto en móvil, puedes limitarlo */
+    .hero-banner {
+        max-height: 200px;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-banner {
+        max-height: 400px; /* Limita altura en pantallas grandes para que no ocupe demasiado */
+        object-fit: cover;
+        width: 100%;
+    }
+}
