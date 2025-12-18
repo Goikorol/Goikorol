@@ -2,9 +2,9 @@
 
 /* Colores inspirados en Twitch: Morado principal #9146FF, fondo oscuro #18181B, acentos #6441A4, texto blanco */
 :root {
-    --twitch-purple: #9146FF;
+    --twitch-purple: #7206be;;
     --twitch-dark: #18181B;
-    --twitch-accent: #6441A4;
+    --twitch-accent: #6e33db;
     --text-light: #FFFFFF;
     --text-dark: #000000;
 }
