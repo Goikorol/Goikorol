@@ -9,9 +9,45 @@
 </head>
 <body>
     <!-- Copia tu header completo aquí (incluyendo nav, logo, menú móvil, etc.) -->
-    <header id="dynamic-header">
-        <!-- ... pega tu <nav> entero de index.html ... -->
-    </header>
+   <header id="dynamic-header">
+    <nav>
+        <div class="logo-container">
+            <a href= "index.html">
+                <img src="imagenes/logo.webp" alt="Logo Goikorol" class="header-logo">
+            </a>
+            <a href= "index.html">
+                <span class="logo-text">Goikorol</span>
+            </a>
+        </div>
+
+        <!-- Menú desktop (visible solo en pantallas grandes) -->
+        <ul id="nav-menu-desktop">
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#videos">Videos</a></li>
+            <li><a href="#horarios">Horarios de Streams</a></li>
+            <li><a href="#fotos">Fotos</a></li>
+            <li><a href="#musica">Música</a></li>
+        </ul>
+
+        <!-- Botón hamburguesa (solo visible en móvil) -->
+        <!--<div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Menú móvil desplegable -->
+        <div class="mobile-menu" id="mobile-menu">
+            <ul id="nav-menu-mobile">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#horarios">Horarios de Streams</a></li>
+                <li><a href="#fotos">Fotos</a></li>
+                <li><a href="#musica">Música</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
     <!-- Hero Banner (opcional, o quítalo si querés foco en el video) -->
     <section id="hero">
