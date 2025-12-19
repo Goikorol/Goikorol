@@ -138,40 +138,55 @@ document.querySelectorAll('.tab-button').forEach(button => {
         document.getElementById(tabId).classList.add('active');
     });
 });
-// Cargar videos desde JSON y generar grid
+// Cargar videos dinámicamente desde videos.json
 async function loadVideos() {
+    const grid = document.getElementById('video-grid');
+    if (!grid) return; // Si no estamos en la página con videos, salir
+
     try {
         const response = await fetch('data/videos.json');
+        if (!response.ok) throw new Error('No se pudo cargar el archivo');
+        
         const videos = await response.json();
         
-        const grid = document.getElementById('video-grid');
-        grid.innerHTML = ''; // Limpiar
+        grid.innerHTML = ''; // Limpiar mensaje de carga
+
+        if (videos.length === 0) {
+            grid.innerHTML = '<p>No hay videos aún. ¡Agrega algunos!</p>';
+            return;
+        }
 
         videos.forEach(video => {
             const card = document.createElement('div');
             card.className = 'video-card';
-            card.addEventListener('click', () => {
+            card.style.cursor = 'pointer';
+            card.onclick = () => {
                 window.location.href = `player.html?video=${video.id}`;
-            });
+            };
 
             card.innerHTML = `
                 <div class="thumbnail">
-                    <img src="${video.thumbnail}" alt="${video.title}">
-                    <span class="duration">Ver video</span>  <!-- Puedes calcular duración si tienes API, por ahora placeholder -->
+                    <img src="${video.thumbnail}" alt="${video.title}" loading="lazy">
+                    <div class="play-icon">▶</div>
                 </div>
                 <div class="video-info">
                     <h3>${video.title}</h3>
-                    <p>Goikorol • Publicado: ${video.date} • Tags: ${video.tags.join(', ')}</p>
-                    <p class="desc">${video.description}</p>
+                    <p>${video.description}</p>
+                    <p class="meta">Publicado: ${video.date} • ${video.tags.join(' • ')}</p>
                 </div>
             `;
 
             grid.appendChild(card);
         });
+
     } catch (error) {
         console.error('Error cargando videos:', error);
+        grid.innerHTML = `<p style="color: red;">Error al cargar videos: ${error.message}</p>`;
     }
 }
+
+// Ejecutar cuando la página cargue
+document.addEventListener('DOMContentLoaded', loadVideos);
 
 // Llamar al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
